@@ -119,12 +119,12 @@
 
         layer_0 {
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                    &kp N6     &kp N7  &kp N8     &kp N9      &kp N0    &mt EQUAL MINUS
-&kp GRAVE       &kp Q   &kp W   &kp E      &kp R         &kp T                     &kp Y      &kp U   &kp I      &kp O       &kp P     &mt RIGHT_BRACKET LEFT_BRACKET
-&kp TAB         &kp A   &kp S   &kp D      &kp F         &kp G                     &kp H      &kp J   &kp K      &kp L       &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z   &kp X   &kp C      &kp V         &kp B                     &kp N      &kp M   &kp COMMA  &kp PERIOD  &kp FSLH  &backspace_shift LSHIFT BACKSPACE
-                                &kp LCTRL  &kp LEFT_ALT  &kp LGUI                  &kp SPACE  &mo 1
-                                           &mkp MB1      &layer_tap_mouse 1 MB2    &kp ENTER
+&kp ESC         &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                    &kp N6     &kp N7     &kp N8     &kp N9      &kp N0    &mt EQUAL MINUS
+&kp GRAVE       &kp Q   &kp W   &kp E      &kp R         &kp T                     &kp Y      &kp U      &kp I      &kp O       &kp P     &mt RIGHT_BRACKET LEFT_BRACKET
+&kp TAB         &kp A   &kp S   &kp D      &kp F         &kp G                     &kp H      &kp J      &kp K      &kp L       &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z   &kp X   &kp C      &kp V         &kp B                     &kp N      &kp M      &kp COMMA  &kp PERIOD  &kp FSLH  &backspace_shift LSHIFT BACKSPACE
+                                &kp LCTRL  &kp LEFT_ALT  &kp LGUI                  &kp SPACE  &kp ENTER
+                                           &mkp MB1      &layer_tap_mouse 1 MB2    &mo 1
             >;
 
             sensor-bindings =
@@ -136,10 +136,10 @@
             bindings = <
 &kp F1          &kp F2                &kp F3                &kp F4            &kp F5            &kp F6              &kp F7          &kp F8      &kp F9            &kp F10     &kp F11            &kp F12
 &none           &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none             &none             &none               &none           &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
-&none           &none                 &kp LA(NUMBER_1)      &kp LA(NUMBER_2)  &kp LA(NUMBER_3)  &kp LA(NUMBER_4)    &kp LEFT_ARROW  &kp DOWN    &kp UP_ARROW      &kp RIGHT   &none              &kp NON_US_BACKSLASH
-&kp LEFT_SHIFT  &none                 &kp LA(N5)            &kp LA(NUMBER_6)  &kp LA(N7)        &kp LA(NUMBER_8)    &none           &none       &none             &none       &none              &kp RIGHT_SHIFT
-                                                            &kp LEFT_CONTROL  &kp LEFT_ALT      &kp LEFT_COMMAND    &kp SPACE       &none
-                                                                              &mkp MB1          &none               &kp ENTER
+&none           &none                 &kp LA(N5)            &kp LA(NUMBER_6)  &kp LA(N7)        &kp LA(NUMBER_8)    &kp LEFT_ARROW  &kp DOWN    &kp UP_ARROW      &kp RIGHT   &none              &kp NON_US_BACKSLASH
+&kp LEFT_SHIFT  &none                 &kp LA(NUMBER_1)      &kp LA(NUMBER_2)  &kp LA(NUMBER_3)  &kp LA(NUMBER_4)    &none           &none       &none             &none       &none              &kp RIGHT_SHIFT
+                                                            &kp LEFT_CONTROL  &kp LEFT_ALT      &kp LEFT_COMMAND    &kp SPACE       &kp ENTER
+                                                                              &mkp MB1          &none               &none
             >;
         };
 
