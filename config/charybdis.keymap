@@ -112,6 +112,20 @@
             #binding-cells = <0>;
             bindings = <&rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(250,100,50) &to 2>;
         };
+
+        cmd_click: cmd_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&mkp LCLK>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "CMD_CLICK";
+        };
     };
 
     keymap {
@@ -139,7 +153,7 @@
 &none           &none                 &kp LA(N5)            &kp LA(NUMBER_6)  &kp LA(N7)        &kp LA(NUMBER_8)    &kp LEFT_ARROW  &kp DOWN    &kp UP_ARROW      &kp RIGHT   &none              &kp NON_US_BACKSLASH
 &kp LEFT_SHIFT  &none                 &kp LA(NUMBER_1)      &kp LA(NUMBER_2)  &kp LA(NUMBER_3)  &kp LA(NUMBER_4)    &none           &none       &none             &none       &none              &kp RIGHT_SHIFT
                                                             &kp LEFT_CONTROL  &kp LEFT_ALT      &kp LEFT_COMMAND    &kp SPACE       &kp ENTER
-                                                                              &mkp MB1          &none               &none
+                                                                              &cmd_click        &none               &none
             >;
         };
 
