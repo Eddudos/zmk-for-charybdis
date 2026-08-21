@@ -22,7 +22,7 @@
 
 &msc {
     acceleration-exponent = <0>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
+    time-to-max-speed-ms = <50>;       // 300
     delay-ms = <0>;                   // 0
 };
 
@@ -51,6 +51,17 @@
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
 
         tap-ms = <100>;
+    };
+
+    backspace_shift: backspace_shift {
+        compatible = "zmk,behavior-hold-tap";
+        label = "BACKSPACE_SHIFT";
+        bindings = <&kp>, <&kp>;
+
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <200>;
     };
 
     behaviors {
@@ -82,14 +93,14 @@
             compatible = "zmk,behavior-macro";
             label = "To2_macro_A";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_COLOR_HSB(250,100,50) &to 2>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(250,100,50) &to 3>;
         };
 
         To2_macro: To2_macro {
             compatible = "zmk,behavior-macro";
             label = "To2_macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(250,100,50) &to 2>;
+            bindings = <&rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(250,100,50) &to 3>;
         };
     };
 
@@ -98,17 +109,17 @@
 
         layer_0 {
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3        &kp N4     &kp N5      &kp N6     &kp N7     &kp N8     &kp N9            &kp N0    &kp BACKSPACE
-&kp TAB         &kp Q   &kp W   &kp E         &kp R      &kp T       &kp Y      &kp U      &kp I      &kp O             &kp P     &kp BSLH
-&kp LEFT_SHIFT  &kp A   &kp S   &kp D         &kp F      &kp G       &kp H      &kp J      &kp K      &kp L             &kp SEMI  &kp SQT
-&kp LCTRL       &kp Z   &kp X   &kp C         &kp V      &kp B       &kp N      &kp M      &kp COMMA  &kp LEFT_BRACKET  &kp FSLH  &kp MINUS
-                                &kp LEFT_ALT  &kp SPACE  &to 1       &kp LWIN   &kp SPACE
-                                              &mkp MB1   &mkp MB2    &kp ENTER
+&kp ESC         &kp N1  &kp N2  &kp N3     &kp N4             &kp N5             &kp N6     &kp N7  &kp N8     &kp N9      &kp N0    &mt EQUAL MINUS
+&kp GRAVE       &kp Q   &kp W   &kp E      &kp R              &kp T              &kp Y      &kp U   &kp I      &kp O       &kp P     &mt RIGHT_BRACKET LEFT_BRACKET
+&kp TAB         &kp A   &kp S   &kp D      &kp F              &kp G              &kp H      &kp J   &kp K      &kp L       &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z   &kp X   &kp C      &kp V              &kp B              &kp N      &kp M   &kp COMMA  &kp PERIOD  &kp FSLH  &backspace_shift LSHIFT BACKSPACE
+                                &kp LCTRL  &kp LEFT_ALT       &kp LGUI           &kp SPACE  &mo 1
+                                           &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,
+                // 编码器1：上下滚动,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -116,13 +127,28 @@
 
         layer_1 {
             bindings = <
-&kp F1          &kp F2           &kp F3           &kp F4           &kp F5           &kp F6        &kp F7     &kp F8    &kp F9      &kp F10            &kp F11  &kp F12
-&kp CAPS        &none            &none            &none            &none            &none         &none      &none     &kp UP      &none              &none    &none
-&kp LEFT_SHIFT  &none            &none            &none            &bt BT_NXT       &bt BT_CLR    &none      &kp LEFT  &kp DOWN    &kp RIGHT          &none    &none
-&kp LCTRL       &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_EFF  &rgb_ug RGB_TOG  &none         &none      &none     &kp PERIOD  &kp RIGHT_BRACKET  &none    &kp EQUAL
-                                                  &kp LEFT_ALT     &kp SPACE        &to 0         &none      &none
+&kp F1          &kp F2           &kp F3           &kp F4           &kp F5           &kp F6        &kp F7          &kp F8    &kp F9        &kp F10            &kp F11  &kp F12
+&kp CAPS        &none            &none            &none            &none            &none         &none           &none     &none         &none              &none    &none
+&kp LEFT_SHIFT  &none            &none            &none            &bt BT_NXT       &bt BT_CLR    &kp LEFT_ARROW  &kp DOWN  &kp UP_ARROW  &kp RIGHT          &none    &none
+&kp LCTRL       &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_EFF  &rgb_ug RGB_TOG  &none         &none           &none     &kp PERIOD    &kp RIGHT_BRACKET  &none    &kp EQUAL
+                                                  &kp LEFT_ALT     &kp SPACE        &to 0         &none           &none
                                                                    &mkp MB1         &mkp MB2      &kp ENTER
             >;
+        };
+
+        layer_11 {
+            bindings = <
+&kp ESC         &kp N1  &kp N2  &kp N3     &kp N4        &kp N5      &kp N6     &kp N7  &kp N8     &kp N9      &kp N0    &mt EQUAL MINUS
+&kp GRAVE       &kp Q   &kp W   &kp E      &kp R         &kp T       &kp Y      &kp U   &kp I      &kp O       &kp P     &mt RIGHT_BRACKET LEFT_BRACKET
+&kp TAB         &kp A   &kp S   &kp D      &kp F         &kp G       &kp H      &kp J   &kp K      &kp L       &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z   &kp X   &kp C      &kp V         &kp B       &kp N      &kp M   &kp COMMA  &kp PERIOD  &kp FSLH  &backspace_shift LSHIFT BACKSPACE
+                                &kp LCTRL  &kp LEFT_ALT  &kp LGUI    &kp SPACE  &mo 1
+                                           &mkp MB1      &mkp MB2    &kp ENTER
+            >;
+
+            sensor-bindings =
+                <&scroll_vertical_encoder>,
+                <&scroll_horizontal_encoder>;
         };
 
         layer_2 {
@@ -203,17 +229,6 @@
         };
 
         layer_9 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
-                                &trans  &trans    &trans
-            >;
-        };
-
-        layer_10 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
