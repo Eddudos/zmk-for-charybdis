@@ -11,8 +11,10 @@
 
 &lt {
     tapping-term-ms = <200>;
-    flavor = "hold-preferred";
-    quick-tap-ms = <150>;
+    flavor = "balanced";
+    quick-tap-ms = <0>;
+    require-prior-idle-ms = <0>;
+    hold-trigger-key-positions = <30 31 32 33>;
 };
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
