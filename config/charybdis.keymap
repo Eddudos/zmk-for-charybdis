@@ -14,7 +14,7 @@
     flavor = "balanced";
     quick-tap-ms = <0>;
     require-prior-idle-ms = <0>;
-    hold-trigger-key-positions = <30 31 32 33>;
+    hold-trigger-key-positions = <30 31 32 33 50 49 48 53 54 36>;
 };
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
